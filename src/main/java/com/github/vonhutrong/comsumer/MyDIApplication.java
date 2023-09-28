@@ -13,6 +13,7 @@ public class MyDIApplication implements Consumer {
         messageService.sendMessage(msg, rec);
     }
 
+    @Override
     public void setMessageService(MessageService messageService) {
         this.messageService = messageService;
     }

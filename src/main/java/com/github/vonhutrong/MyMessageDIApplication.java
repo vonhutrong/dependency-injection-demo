@@ -1,5 +1,6 @@
 package com.github.vonhutrong;
 
+import com.github.vonhutrong.comsumer.MyDIApplication;
 import com.github.vonhutrong.injectors.SMSServiceInjector;
 
 public class MyMessageDIApplication {
@@ -8,8 +9,8 @@ public class MyMessageDIApplication {
         String msg = "Hi Trong";
         String phone = "0123456789";
 
-        new SMSServiceInjector()
-                .getConsumer()
-                .processMessages(msg, phone);
+        MyDIApplication myDIApplication = new MyDIApplication();
+        new SMSServiceInjector().inject(myDIApplication);
+        myDIApplication.processMessages(msg, phone);
     }
 }
