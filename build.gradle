@@ -14,6 +14,17 @@ dependencies {
     testImplementation 'org.junit.jupiter:junit-jupiter'
 }
 
+ext {
+    javaMainClass = "com.github.vonhutrong.MyMessageDIApplication"
+}
+
+tasks.register('run', JavaExec) {
+    group = "Execution"
+    description = "Run the main class with JavaExecTask"
+    classpath = sourceSets.main.runtimeClasspath
+    mainClass = javaMainClass
+}
+
 test {
     useJUnitPlatform()
 }
